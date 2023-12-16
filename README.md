@@ -55,3 +55,21 @@ set up your models
 if using traditional rest api you would require the models in your controllers folder but if using graph ql
 crete type defs and resolvers in your schema folder 
 create your seeds
+
+once seeds are done set up concurrently
+
+set up scripts and your single package
+
+ "scripts": {
+    "start": "node server/server.js",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed",
+    "build": "cd client && npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
