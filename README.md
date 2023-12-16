@@ -73,3 +73,9 @@ set up scripts and your single package
   "devDependencies": {
     "concurrently": "^8.2.0"
   }
+
+  At this stage you should have a server running able to test your queries
+
+  now time to connect with the front end
+  first go to your utils folder
+  

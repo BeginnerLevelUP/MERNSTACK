@@ -13,6 +13,7 @@ name:String
 
 type Query{
     users:[User]
+    friends:[Friends]
 }
 `
 module.exports=typeDefs

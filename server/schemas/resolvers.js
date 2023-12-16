@@ -5,7 +5,10 @@ const resolvers={
     Query:{
         // references what you did in the type defs
         users: async()=>{
-            return await User.find({})
+            return await User.find({}).populate('friends')
+        },
+            friends: async () => {
+            return await Friends.find({})
         }
     }
 }
