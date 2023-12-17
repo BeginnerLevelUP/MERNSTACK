@@ -105,3 +105,5 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
+
+after done with mutations you can now set up your react router 

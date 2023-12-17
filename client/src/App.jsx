@@ -2,8 +2,8 @@
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import Home from './pages/home';
-import UserForm from './components/userForm';
+import Header from './components/header';
+import { Outlet } from 'react-router-dom';
 import {
   ApolloClient,
   InMemoryCache,
@@ -34,8 +34,8 @@ function App() {
         </a>
       </div>
     <div>
-    <UserForm></UserForm>
-  <Home></Home>
+    <Header></Header>
+    <Outlet></Outlet>
     </div>
     </>
     </ApolloProvider>
