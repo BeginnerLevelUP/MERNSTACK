@@ -11,13 +11,19 @@ _id:ID
 name:String
 }
 
+  type Auth {
+    token: ID!
+    user: User
+  }
+
 type Query{
     users:[User]
     friends:[Friends]
 }
 
 type Mutation{
-    addUser(name:String!):User
+    addUser(name:String!):Auth
+    login(name:String!):Auth
 }
 `
 module.exports=typeDefs

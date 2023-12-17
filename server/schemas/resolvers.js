@@ -1,5 +1,6 @@
 // https://www.apollographql.com/docs/apollo-server/v2/data/resolvers
 const {User,Friends}=require("../models")
+const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers={
     Query:{
@@ -13,8 +14,20 @@ const resolvers={
     },
     Mutation:{
         addUser: async(parent,{name})=>{
-            return User.create({name})
+           const user= await User.create({ name })
+            const token = signToken(user);
+            return {token,user}
         },
+        login: async (parent, { name }) => {
+            const user = await User.findOne({ name })
+            const token = signToken(user);
+
+            if(!user){
+                throw AuthenticationError
+            }
+            return { token, user }
+        },
+
     }
 }
 module.exports=resolvers
