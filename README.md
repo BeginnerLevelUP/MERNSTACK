@@ -78,4 +78,30 @@ set up scripts and your single package
 
   now time to connect with the front end
   first go to your utils folder
-  
+  create your queries best to test out in the graphql sandbox the copy and past
+  import gql
+  store each queries in variables and export
+
+  got to your app.jsx
+   and import the necessary component
+
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
+import { Outlet } from 'react-router-dom';
+
+
+// Construct our main GraphQL API endpoint
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
+
+const client = new ApolloClient({
+  // Set up our client to execute the `authLink` middleware prior to making the request to our GraphQL API
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
