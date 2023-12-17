@@ -7,3 +7,11 @@ mutation AddUser($name: String!) {
   }
 }
 `
+export const LOGIN=gql`
+mutation Mutation($name: String!) {
+  login(name: $name) {
+    user {
+      name
+    }
+  }
+}`
