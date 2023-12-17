@@ -1,8 +1,9 @@
-import Home from './components/Home';
+
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-
+import Home from './pages/home';
+import UserForm from './components/userForm';
 import {
   ApolloClient,
   InMemoryCache,
@@ -33,7 +34,8 @@ function App() {
         </a>
       </div>
     <div>
-      <Home></Home>
+    <UserForm></UserForm>
+  <Home></Home>
     </div>
     </>
     </ApolloProvider>

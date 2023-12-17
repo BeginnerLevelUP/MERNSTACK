@@ -10,6 +10,11 @@ const resolvers={
             friends: async () => {
             return await Friends.find({})
         }
+    },
+    Mutation:{
+        addUser: async(parent,{name})=>{
+            return User.create({name})
+        },
     }
 }
 module.exports=resolvers

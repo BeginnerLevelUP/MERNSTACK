@@ -15,5 +15,9 @@ type Query{
     users:[User]
     friends:[Friends]
 }
+
+type Mutation{
+    addUser(name:String!):User
+}
 `
 module.exports=typeDefs
