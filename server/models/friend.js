@@ -1,7 +1,7 @@
 const {Schema,model}=require('mongoose')
 const dateFormat=require('../utils/dateFormat')
 const friendSchema=({
-    name:{
+    username:{
         type:String,
         require:true,
     },
