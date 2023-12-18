@@ -1,0 +1,52 @@
+[
+    {
+        "username": "damion",
+        "email": "damion@example.com",
+        "password": "securepass1"
+    },
+    {
+        "username": "bob456",
+        "email": "bob@example.com",
+        "password": "pass1234"
+    },
+    {
+        "username": "charlie",
+        "email": "charlie@example.com",
+        "password": "p@ssw0rd"
+    },
+    {
+        "username": "diana89",
+        "email": "diana@example.com",
+        "password": "strongP@ss"
+    },
+    {
+        "username": "elijah09",
+        "email": "elijah@example.com",
+        "password": "mypassword11"
+    },
+    {
+        "username": "fiona25",
+        "email": "fiona@example.com",
+        "password": "fionaPass23"
+    },
+    {
+        "username": "george88",
+        "email": "george@example.com",
+        "password": "gPass123"
+    },
+    {
+        "username": "hannah47",
+        "email": "hannah@example.com",
+        "password": "securehannah"
+    },
+    {
+        "username": "ian123",
+        "email": "ian@example.com",
+        "password": "i@nPassw0rd"
+    },
+    {
+        "username": "juliette7",
+        "email": "juliette@example.com",
+        "password": "passJuliette7"
+    }
+]

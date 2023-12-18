@@ -21,11 +21,25 @@ Edit your vite config so it opens by itself
 1. The port propery sets your desired port
 2. the open property sets makes it open in your browsers for you
     
- ``````   export default defineConfig({
-    plugins: [react()],
-    server: {
+ ``````  import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [react()],
+  server: {
     port: 3000,
-    open: true   }  })
+    open: true,
+    proxy: {
+      '/graphql': {
+        target: 'http://localhost:3001',
+        changeOrigin: true,
+        secure: false,
+      }
+    }
+  }
+})
+
 ``````
 
     
@@ -84,11 +98,23 @@ server dependencies
 
 ``````
 Set up your scripts to 
-* Watch/Dev restart sever automatically with nodemon
-* start regullary with node
-* seed your database
-* etc...
+```"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "watch": "nodemon server.js",
+    "seed": "node seeds/seed.js"
+  },
+  
+  In your package.json
 
+  "scripts": {
+    "start": "node server/server.js",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm run dev\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed",
+    "build": "cd client && npm run build"
+  }
+  ``````
 (add images later)
 
 1. Create your Sever.js
@@ -96,7 +122,11 @@ Set up your scripts to
 3. Once connected you now create your models for the database
 4. Now create Seeds
 5. Create Typedefs and Resolvers
+6. Now you can set up concurrently with the necessary scripts 
 
+* * `` npm install concurrently--save-dev "devDependencies": {
+    "concurrently": "^8.2.0"
+  }``
 
 
 if using traditional rest api you would require the models in your controllers folder but if using graph ql
