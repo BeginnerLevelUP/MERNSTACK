@@ -1,8 +1,5 @@
 # MERNSTACK
 ## 2024 our year
-Before Building your application you must
-* Create a github repo to keep track of everything (commit often)
-* Seperate your front end and back end into folders client and server respectively 
 
 ### Establishing Your Front End
 #### Docs
@@ -31,12 +28,12 @@ Edit your vite config so it opens by itself
     
 
 Now install your client dependecies
-* [Appolo Client](https://www.npmjs.com/package/@apollo/client)
-* [Graphql](https://www.npmjs.com/package/graphql)
-* [Jwt](https://www.npmjs.com/package/jwt-decode)
-* [React](https://www.npmjs.com/package/react)
-* [React-dom](https://www.npmjs.com/package/react-dom)
-* [React-router-dom](https://www.npmjs.com/package/react-router-dom)
+* [Appolo Client]()
+* [Graphql]()
+* [Jwt]()
+* [React]()
+* [React-dom]()
+* [React-router-dom]()
 ``````
     "dependencies": {
     "@apollo/client": "^3.7.14",
@@ -48,29 +45,15 @@ Now install your client dependecies
     dom": "^6.11.2"
     },
  ``````   
+ Once complete You can now store all your files into a folder called CLIET
  
-
 set up your client server and concurrently
 https://www.npmjs.com/package/concurrently?activeTab=readme
 open all there of them in seperate terminals makes it alot easier
-
 ### Establishing Your Back End
 This part is alot more time consumming and easy to mess up so be carefull
 
-First You must init your npm then install the necessary packages
-* [nodemon](https://www.npmjs.com/package/nodemon)
-
-* [@apollo/server](https://www.npmjs.com/package/@apollo/server) 
-* [bcrypt](https://www.npmjs.com/package/bcrypt) 
-* * [Understanding bcrypt](//https://auth0.com/blog/hashing-in-action-understanding-bcrypt/)
-* [express](https://www.npmjs.com/package/express) 
-* [graphql](https://www.npmjs.com/package/graphql)
-* [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) 
-* [mongoose](https://www.npmjs.com/package/mongoose)
-* [mysql2](https://www.npmjs.com/package/mysql2) - (if using SQL database)
-* [express-session](https://www.npmjs.com/package/express-session) - (if using authentication this way)
-
-``````
+First You must init your npm
 server dependencies
     "@apollo/server": "^4.7.1",
     "bcrypt": "^5.0.0",
@@ -80,24 +63,21 @@ server dependencies
     "mongoose": "^7.0.2"
     (mysql2 if were doing sql database)
     (express sessions if were doing auth that way)
-      npm install nodemon --save-dev
+    disregard version numbers just lazy rn
 
-``````
-Set up your scripts to 
-* Watch/Dev restart sever automatically with nodemon
-* start regullary with node
-* seed your database
-* etc...
+    npm install nodemon --save-dev
 
-(add images later)
-
-1. Create your Sever.js
-2. Establish your connection 
-3. Once connected you now create your models for the database
-4. Now create Seeds
-5. Create Typedefs and Resolvers
+    setup all your scripts 
+    watch/dev
+    start install seed etc
 
 
+
+back to the server
+check comments in server.js
+maybe add imgs later
+set up the connection to your database (mongdb or ssql) in config folder connection.js
+set up your models
 
 if using traditional rest api you would require the models in your controllers folder but if using graph ql
 crete type defs and resolvers in your schema folder 
