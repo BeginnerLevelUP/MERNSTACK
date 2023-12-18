@@ -1,34 +1,31 @@
 import { useState } from "react";
 import { useMutation } from "@apollo/client";
-import { LOGIN } from "../../utils/mutations";
+import { ADD_USER } from "../../utils/mutations";
 import { QUERY_USER } from "../../utils/queries";
 import { Link } from "react-router-dom";
 import Auth from "../../utils/auth.js"
 
-function Login() {
+function Signup() {
     const [name, setName] = useState('');
 
-    const [login, { error, data }] = useMutation(LOGIN, {
+    const [addUser, { error, data }] = useMutation(ADD_USER, {
         refetchQueries: [{ query: QUERY_USER }],
     });
 
-    const handleChange = (e) => {
-        const { value } = e.target;
-        setName(value);
-    };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         try {
-            const response = await login({
+            const { data } = await addUser({
                 variables: {
                     name,
                 },
             });
 
             // Ensure the response structure matches the expected format
-            const { token } = response.data.login; // Access the token if it exists in the response
+            const { token } = data.addUser; // Access the token if it exists in the response
+
             if (token) {
                 Auth.login(token);
             }
@@ -39,6 +36,10 @@ function Login() {
         }
     };
 
+    const handleChange = (e) => {
+        const { value } = e.target;
+        setName(value);
+    };
 
 
     return (
@@ -46,7 +47,7 @@ function Login() {
             <h1>User Creation</h1>
             {data ? (
                 <p>
-                   welcome back {data.auth} <Link to="/">Back to the homepage</Link>
+                    User added successfully. <Link to="/">Back to the homepage</Link>
                 </p>
             ) : (
                 <form onSubmit={handleSubmit}>
@@ -58,10 +59,10 @@ function Login() {
                         value={name}
                         onChange={handleChange}
                     />
-                    <button type="submit">Login</button>
+                    <button type="submit">Signup</button>
                 </form>
             )}
         </>
     );
 }
-export default Login;
+export default Signup;
