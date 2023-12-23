@@ -183,4 +183,13 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-after done with mutations you can now set up your react router 
+after done with mutations you can now set up authentication
+auth for backend
+server.js
+type defs 
+resolvers verfiy password with the model method you created 
+
+create auth util file (jwt )
+with auth create now you can set up a me route
+time for the front end 
+set up pages/react router

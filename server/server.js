@@ -2,7 +2,8 @@ const express = require('express'); // To run the server
 const { ApolloServer } = require('@apollo/server'); // To interacted with apollo server
 const { expressMiddleware } = require('@apollo/server/express4');
 const path = require('path');
-// const { authMiddleware } = require('./utils/auth');
+// for authentication
+const { authMiddleware } = require('./utils/auth');
 const { typeDefs, resolvers } = require('./schemas'); 
 // TypeDefs - Describing the data structure
 // Resolver- making these structures actually work from your database
@@ -23,7 +24,9 @@ const startApolloServer = async () => {
     app.use(express.json());
     // ????
 
-    app.use('/graphql', expressMiddleware(server));
+    app.use('/graphql', expressMiddleware(server, {
+        context: authMiddleware // for auth
+    }));
 
     if (process.env.NODE_ENV === 'production') {
         app.use(express.static(path.join(__dirname, '../client/dist')));
