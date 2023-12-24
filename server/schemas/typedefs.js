@@ -30,6 +30,7 @@ user(username: String!): User
 friends(_id:String!): [Friend]
 #since it's a parameter you can just make a name you seem fit
 friend(friendId: String!): Friend
+
 }
 
 type Mutation{

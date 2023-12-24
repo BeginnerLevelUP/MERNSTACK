@@ -5,6 +5,12 @@ const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers={
     Query:{
+        // me:async(parent,{user})=>{
+        //     if ({_id}) {
+        //         return User.findOne({ _id}).populate('thoughts');
+        //     }
+        //     throw AuthenticationError;
+        // },
         //notice how the names of the querys are the same names in the typedefs
         users: async()=>{
             return await User.find({}).populate('friends')
