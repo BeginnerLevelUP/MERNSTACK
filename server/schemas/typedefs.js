@@ -1,5 +1,5 @@
 // the structure of your shcemas const 
-typedefs=`
+const typedefs=`
 #type __ is basically creating your models since my types are one to one to what my models look like its very easy to understand
 type User {
     _id: ID
